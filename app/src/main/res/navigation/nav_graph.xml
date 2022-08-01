@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/masterFragment"
+        android:name="rick.and.morty.MasterFragment"
+        android:label="fragment_master"
+        tools:layout="@layout/fragment_master" >
+        <action
+            android:id="@+id/action_masterFragment_to_detailFragment2"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="rick.and.morty.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="character"
+            app:argType="rick.and.morty.data.datasource.dto.Character" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="rick.and.morty.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_masterFragment"
+            app:destination="@id/masterFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>
